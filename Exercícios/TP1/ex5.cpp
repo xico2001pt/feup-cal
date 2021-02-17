@@ -32,8 +32,10 @@ bool isCanonical(unsigned int C[], unsigned int n) {
         }
         greedyCoins = sumArray(usedCoins, n);
 
-        if (bruteCoins < greedyCoins)
+        if (bruteCoins < greedyCoins) {
+            canonical = false;
             break;
+        }
     }
 
     free(Stock);
@@ -55,5 +57,5 @@ TEST(TP1_Ex5, canonicalTrue) {
 
 TEST(TP1_Ex5, canonicalFalse) {
     unsigned int C[] = {1,4,5};
-    EXPECT_EQ(isCanonical(C,3), true);
+    EXPECT_EQ(isCanonical(C,3), false);
 }
