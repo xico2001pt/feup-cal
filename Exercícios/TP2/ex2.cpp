@@ -58,7 +58,7 @@ bool Sudoku::solve() {
 
 int Sudoku::countSolutions() {
     if (isComplete())
-        return true;
+        return 1;
 
 
     int line, column, solutions = 0;
@@ -67,11 +67,9 @@ int Sudoku::countSolutions() {
     for (int n = 1; n < 10; ++n) {
         if (accepts(line, column, n)) {
             place(line, column, n);
-            if (countSolutions()) {
-                ++solutions;
-                if (solutions == 2)
-                    return solutions;
-            }
+            solutions += countSolutions();
+            if (solutions >= 2)
+                return 2;
             clear(line, column);
         }
     }
@@ -409,4 +407,47 @@ TEST(TP2_Ex2, testSudokuImpossible) {
             out[i][a] = res[i][a];
 
     compareSudokus(in, out);
+}
+
+TEST(TP2_Ex2, testSudokuVariousSolutions) {
+    int in1[9][9] =
+            {{2,9,5,7,4,3,8,6,1},
+             {4,3,1,8,6,5,9,0,0},
+             {8,7,6,1,9,2,5,4,3},
+             {3,8,7,4,5,9,2,1,6},
+             {6,1,2,3,8,7,4,9,5},
+             {5,4,9,2,1,6,7,3,8},
+             {7,6,3,5,2,4,1,8,9},
+             {9,2,8,6,7,1,3,5,4},
+             {1,5,4,9,3,8,6,0,0}};
+
+    Sudoku s1(in1);
+    EXPECT_EQ(s1.countSolutions(), 2);
+
+    int in2[9][9] =
+            { {5, 3, 0, 0, 7, 0, 0, 0, 0},
+              {6, 0, 0, 1, 9, 5, 0, 0, 0},
+              {0, 9, 8, 0, 0, 0, 0, 6, 0},
+              {8, 0, 0, 0, 6, 0, 0, 0, 3},
+              {4, 0, 0, 8, 0, 3, 0, 0, 1},
+              {7, 0, 0, 0, 2, 0, 0, 0, 6},
+              {0, 6, 0, 0, 0, 0, 2, 8, 0},
+              {0, 0, 0, 4, 1, 9, 0, 0, 5},
+              {0, 0, 0, 0, 8, 0, 0, 0, 0} };
+    Sudoku s2(in2);
+    EXPECT_EQ(s2.countSolutions(),2);
+
+    int in3[9][9] =
+            {{0, 0, 0, 0, 0, 0, 0, 0, 0},
+             {0, 0, 3, 0, 0, 0, 0, 0, 0},
+             {0, 0, 0, 0, 0, 0, 0, 0, 0},
+             {0, 0, 0, 0, 0, 0, 0, 0, 0},
+             {0, 0, 0, 0, 0, 4, 0, 0, 0},
+             {0, 0, 0, 0, 0, 0, 0, 0, 0},
+             {0, 0, 2, 0, 0, 0, 0, 0, 1},
+             {0, 0, 0, 0, 0, 0, 0, 0, 0},
+             {0, 0, 0, 0, 0, 0, 0, 0, 0}};
+
+    Sudoku s3(in3);
+    EXPECT_EQ(s3.countSolutions(), 2);
 }
