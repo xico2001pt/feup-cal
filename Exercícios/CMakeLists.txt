@@ -6,29 +6,25 @@ set(GOOGLETEST_PATH lib/googletest-master)
 add_subdirectory(${GOOGLETEST_PATH})
 
 # Add the source files of each TP class
-file(GLOB TP1_FILES CONFIGURE_DEPENDS
-        "TP1/*.cpp"
-        )
-file(GLOB TP2_FILES CONFIGURE_DEPENDS
-        "TP2/*.cpp"
-        )
-file(GLOB TP3_FILES CONFIGURE_DEPENDS
-        "TP3/*.cpp"
-        )
+file(GLOB Calosseum2021_FILES CONFIGURE_DEPENDS "Calosseum2021/*.cpp")
+file(GLOB TP1_FILES CONFIGURE_DEPENDS "TP1/*.cpp")
+file(GLOB TP2_FILES CONFIGURE_DEPENDS "TP2/*.cpp")
+file(GLOB TP3_FILES CONFIGURE_DEPENDS "TP3/*.cpp")
+file(GLOB TP4_FILES CONFIGURE_DEPENDS "TP4/*.cpp")
+file(GLOB TP5_FILES CONFIGURE_DEPENDS "TP5/*.cpp")
 
-add_executable(TP1
-        main.cpp
-        ${TP1_FILES}
-        )
-add_executable(TP2
-        main.cpp
-        ${TP2_FILES}
-        )
-add_executable(TP3
-        main.cpp
-        ${TP3_FILES}
-        )
 
+add_executable(Calosseum2021 main.cpp ${Calosseum2021_FILES} Calosseum2021/balancingWeights.cpp Calosseum2021/creatingPalindromes.cpp)
+add_executable(TP1 main.cpp ${TP1_FILES})
+add_executable(TP2 main.cpp ${TP2_FILES})
+add_executable(TP3 main.cpp ${TP3_FILES})
+add_executable(TP4 main.cpp ${TP4_FILES})
+add_executable(TP5 main.cpp ${TP5_FILES})
+
+
+target_link_libraries(Calosseum2021 gtest_main gmock_main)
 target_link_libraries(TP1 gtest_main gmock_main)
 target_link_libraries(TP2 gtest_main gmock_main)
 target_link_libraries(TP3 gtest_main gmock_main)
+target_link_libraries(TP4 gtest_main gmock_main)
+target_link_libraries(TP5 gtest_main gmock_main)
