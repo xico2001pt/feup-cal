@@ -14,6 +14,7 @@ file(GLOB TP4_FILES CONFIGURE_DEPENDS "TP4/*.cpp")
 file(GLOB TP5_FILES CONFIGURE_DEPENDS "TP5/*.cpp")
 file(GLOB TP6_FILES CONFIGURE_DEPENDS "TP6/*.cpp")
 file(GLOB TP7_FILES CONFIGURE_DEPENDS "TP7/*.cpp")
+file(GLOB TP8_FILES CONFIGURE_DEPENDS "TP8/*.cpp")
 
 
 add_executable(Calosseum2021 main.cpp ${Calosseum2021_FILES} Calosseum2021/balancingWeights.cpp Calosseum2021/creatingPalindromes.cpp Calosseum2021/aNewCapitalCity.cpp Calosseum2021/highwayPlanning.cpp)
@@ -24,6 +25,7 @@ add_executable(TP4 main.cpp ${TP4_FILES})
 add_executable(TP5 main.cpp ${TP5_FILES})
 add_executable(TP6 main.cpp ${TP6_FILES})
 add_executable(TP7 main.cpp ${TP7_FILES})
+add_executable(TP8 main.cpp ${TP8_FILES})
 
 
 target_link_libraries(Calosseum2021 gtest_main gmock_main)
@@ -34,3 +36,4 @@ target_link_libraries(TP4 gtest_main gmock_main)
 target_link_libraries(TP5 gtest_main gmock_main)
 target_link_libraries(TP6 gtest_main gmock_main)
 target_link_libraries(TP7 gtest_main gmock_main)
+target_link_libraries(TP8 gtest_main gmock_main)
