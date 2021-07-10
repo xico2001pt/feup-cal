@@ -11,6 +11,7 @@ Este repositório contém:
 - Exercícios Resolvidos
 - Projeto
    - [Market On Wheels](https://github.com/xico2001pt/cal-market-on-wheels)
+- Resumos
 
 ## Classificações
 
