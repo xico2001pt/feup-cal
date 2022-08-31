@@ -10,7 +10,7 @@ Este repositório contém:
 - Slides
 - Exercícios Resolvidos
 - Projeto
-   - [Market On Wheels](https://github.com/xico2001pt/cal-market-on-wheels)
+   - [Market On Wheels](https://github.com/adr1an0s0ar3s/market_on_wheels)
 - Resumos
 
 ## Classificações
